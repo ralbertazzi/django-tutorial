@@ -1,26 +1,11 @@
-<!-- Loads the path to your static files-->
-{% load static %}
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}">
+{% extends 'music/base.html' %}
 
-<!-- Bootstrap navbar -->
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <!-- Logo -->
-        <div class="navbar-header">
-            <a class="navbar-brand" href="{% url 'music:index' %}">Viber</a>
-        </div>
-    </div>
-</nav>
+{% block body %}
 
-
-{% if all_albums %}
-    <h3>Here are all my albums</h3>
     <ul>
         {% for album in all_albums %}
-        <li><a href="{% url 'music:detail' album.id %}">{{ album.title }}</a></li>
+            <li><a href="{% url 'music:detail' album.id %}">{{ album.title }}</a></li>
         {% endfor %}
     </ul>
-{% else %}
-    <h3>You don't have any albums</h3>
-{% endif %}
+
+{% endblock %}

@@ -5,12 +5,12 @@ app_name = 'music'
 
 urlpatterns = [
     # /music/
-    path('', views.index, name='index'),
+    path('', views.IndexView.as_view(), name='index'),
 
     # /music/<album-id>/
-    path('<int:album_id>/', views.detail, name='detail'),
+    path('<int:pk>/', views.DetailView.as_view(), name='detail'),
     # before Django 2: r'^(?P<album_id>[0-9]+)$'
 
-    # /music/<album-id>/favorite
-    path('<int:album_id>/favorite/', views.favorite, name='favorite')
+    # /music/album/add/
+    path('album/add/', views.AlbumCreate.as_view(), name='album-add')
 ]
