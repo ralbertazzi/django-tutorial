@@ -12,5 +12,15 @@ urlpatterns = [
     # before Django 2: r'^(?P<album_id>[0-9]+)$'
 
     # /music/album/add/
-    path('album/add/', views.AlbumCreate.as_view(), name='album-add')
+    path('album/add/', views.AlbumCreate.as_view(), name='album-add'),
+
+    # /music/album/<album-id>/
+    path('album/<int:pk>/', views.AlbumUpdate.as_view(), name='album-update'),
+
+    # /music/album/<album-id>/delete
+    path('album/<int:pk>/delete', views.AlbumDelete.as_view(), name='album-delete'),
+
+    # /music/register
+    path('register/', views.UserFormView.as_view(), name='register'),
+
 ]

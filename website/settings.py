@@ -122,3 +122,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+# Actual computer path
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# For relative urls
+MEDIA_URL = '/media/'
